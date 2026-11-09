@@ -1,13 +1,367 @@
-/* Стили страницы.
-   Пишите здесь. */
-
+/* Общие стили */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  min-height: 100vh;
-  font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка */
+.header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: #C9A84C;
+}
+
+/* Индикатор шагов */
+.steps {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #999;
+}
+
+.step-number {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.step.done .step-number {
+    background-color: #999;
+}
+
+.step.active .step-number {
+    background-color: #C9A84C;
+}
+
+.step.active .step-label {
+    color: #C9A84C;
+    font-weight: bold;
+}
+
+.step-label {
+    font-size: 13px;
+}
+
+/* Основной контент */
+.main {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.back-link {
+    margin-bottom: 15px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.back-link a:hover {
+    color: #C9A84C;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Контейнер бронирования */
+.booking-container {
+    display: flex;
+    gap: 30px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Календарь */
+.calendar {
+    flex: 1;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-month {
+    font-size: 18px;
+    color: #222;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 5px;
+}
+
+.calendar-btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.calendar-btn:hover {
+    border-color: #C9A84C;
+    color: #C9A84C;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day-name {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.day {
+    text-align: center;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 13px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+}
+
+.day:hover {
+    background-color: #e0e0e0;
+}
+
+.day.active {
+    background-color: #C9A84C;
+    color: #fff;
+    font-weight: bold;
+}
+
+.day.other-month {
+    color: #bbb;
+    background-color: transparent;
+}
+
+.day.other-month:hover {
+    background-color: #f5f5f5;
+}
+
+/* Слоты времени */
+.time-slots {
+    flex: 1;
+}
+
+.time-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.slot {
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.slot:hover {
+    border-color: #C9A84C;
+}
+
+.slot.active {
+    background-color: #C9A84C;
+    border-color: #C9A84C;
+    color: #fff;
+    font-weight: bold;
+}
+
+.slot.occupied {
+    background-color: #f5f5f5;
+    color: #999;
+    border-color: #eee;
+    cursor: not-allowed;
+    font-size: 12px;
+}
+
+.slot.occupied small {
+    font-size: 10px;
+    color: #bbb;
+}
+
+.slot.occupied:hover {
+    border-color: #eee;
+}
+
+/* Кнопка продолжения */
+.btn-primary {
+    display: block;
+    margin: 30px 0 0;
+    padding: 14px 30px;
+    background-color: #C9A84C;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b8943f;
+}
+
+/* Подвал */
+.footer {
+    background-color: #C9A84C;
+    color: #fff;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-block {
+    flex: 1;
+}
+
+.footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer-desc {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.footer-title {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.footer-block p {
+    font-size: 13px;
+    margin-bottom: 6px;
+    opacity: 0.95;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+.footer-bottom a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer-bottom a:hover {
+    opacity: 0.8;
 }
